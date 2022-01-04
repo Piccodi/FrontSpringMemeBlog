@@ -1,28 +1,37 @@
 <template>
+
+
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <NavigationPanel></NavigationPanel>
+    <router-view/>
   </div>
+
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import NavigationPanel from '@/components/NavBar';
 
 export default {
+
   name: 'App',
   components: {
-    HelloWorld
+    NavigationPanel
+  },
+  mounted() {
+    if(localStorage.username){
+      this.$store.commit('setUser',{
+        id : localStorage.id,
+        username : localStorage.username
+      })
+    }
   }
 }
+
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
