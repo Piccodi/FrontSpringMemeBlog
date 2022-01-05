@@ -52,4 +52,4 @@ export default {
 
 <style scoped>
 
-</style>Y
+</style>
